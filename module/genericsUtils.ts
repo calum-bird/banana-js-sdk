@@ -2,14 +2,6 @@ import axios, {AxiosError} from 'axios'
 const { v4: uuidv4 } = require('uuid')
 
 let endpoint: string = 'https://api.banana.dev/'
-if ("BANANA_URL" in process.env){
-    endpoint = process.env.BANANA_URL!
-    console.log("Running from", endpoint)
-    if (process.env.BANANA_URL === "local"){
-        // console.log("Running from local")
-        endpoint = "http://localhost/"
-    }
-}
 
 
 export async function runMain(apiKey: string, modelKey: string, modelInputs: object = {}): Promise<any>{
